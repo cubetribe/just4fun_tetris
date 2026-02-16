@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no" />
+    <meta name="theme-color" content="#0f1224" />
+    <title>Mobile Tetris Challenge</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell game-shell">
+      <header class="top-bar hero-card stagger-1">
+        <div>
+          <p class="eyebrow">Arcade Edition</p>
+          <h1>Mobile Tetris Challenge</h1>
+          <p class="subline">10 Level. Kein Pause-Button. Level 10 bringt dir die Gutschein-Chance.</p>
+        </div>
+        <a class="admin-link" href="./admin.html">Admin</a>
+      </header>
+
+      <section class="play-zone stagger-2">
+        <article class="panel board-panel">
+          <canvas id="tetris" width="300" height="600" aria-label="Tetris Spielfeld"></canvas>
+          <div id="overlay" class="overlay hidden" role="dialog" aria-live="polite">
+            <h3 id="overlayTitle"></h3>
+            <p id="overlayMessage"></p>
+            <div class="overlay-actions" id="overlayActions"></div>
+          </div>
+        </article>
+
+        <article class="panel score-panel">
+          <div class="panel-title-row">
+            <h2>Run Status</h2>
+          </div>
+
+          <div class="stat-pills">
+            <div class="stat-pill">
+              <span>Score</span>
+              <strong id="score">0</strong>
+            </div>
+            <div class="stat-pill">
+              <span>Lines</span>
+              <strong id="lines">0</strong>
+            </div>
+            <div class="stat-pill">
+              <span>Level</span>
+              <strong id="level">1</strong>
+            </div>
+            <div class="stat-pill">
+              <span>Nächstes</span>
+              <strong id="nextPiece">-</strong>
+            </div>
+          </div>
+
+          <div class="toggle-grid">
+            <button id="soundToggle" class="btn small" type="button">Sound: AN</button>
+            <button id="gyroToggle" class="btn small" type="button">Gyro aktivieren</button>
+          </div>
+
+          <p class="gesture-title">Swipe-Anleitung</p>
+          <ul class="gesture-list">
+            <li>Langsam nach unten ziehen: Soft Drop (kontinuierlich)</li>
+            <li>Schneller Flick nach unten: Hard Drop</li>
+            <li>Swipe nach oben: Rotieren</li>
+            <li>Swipe links/rechts: Bewegen</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="panel highscores-panel stagger-3">
+        <div class="panel-title-row">
+          <h2>Highscores</h2>
+          <p class="hint">Top 20 lokal auf diesem Gerät</p>
+        </div>
+        <ol id="highscoreList" class="highscore-list"></ol>
+      </section>
+    </main>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
